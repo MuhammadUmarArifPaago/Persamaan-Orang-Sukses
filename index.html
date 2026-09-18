@@ -22,7 +22,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at center, #1a0b2e 0%, #0a0410 100%);
+            /* Latar belakang serius (Slate Navy & Obsidian) */
+            background: radial-gradient(circle at center, #1e293b 0%, #0b1329 100%);
             color: #ffffff;
             overflow: hidden;
             position: relative;
@@ -35,33 +36,29 @@
             pointer-events: none;
         }
 
-        .particle {
+        /* Styling Partikel Tanda Tanya */
+        .particle-question {
             position: absolute;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: floatUp linear infinite;
-        }
-
-        .particle-heart {
-            position: absolute;
-            color: rgba(255, 192, 203, 0.3);
-            font-size: 10px;
+            color: rgba(148, 163, 184, 0.18); /* Warna slate halus dengan transparansi */
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            user-select: none;
             animation: floatUp linear infinite;
         }
 
         @keyframes floatUp {
             0% {
-                transform: translateY(100vh) scale(0);
+                transform: translateY(100vh) scale(0.5) rotate(0deg);
                 opacity: 0;
             }
-            10% {
+            15% {
                 opacity: 1;
             }
-            90% {
+            85% {
                 opacity: 1;
             }
             100% {
-                transform: translateY(-10vh) scale(1);
+                transform: translateY(-10vh) scale(1.1) rotate(15deg);
                 opacity: 0;
             }
         }
@@ -75,14 +72,15 @@
             overflow-y: auto;
             padding: 3rem 2rem;
 
-            background: rgba(42, 22, 53, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            /* Glassmorphism gelap netral */
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
+            border-radius: 20px;
             box-shadow:
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                inset 0 0 20px rgba(255, 255, 255, 0.05);
+                0 12px 40px rgba(0, 0, 0, 0.5),
+                inset 0 0 20px rgba(255, 255, 255, 0.03);
 
             text-align: center;
         }
@@ -91,7 +89,7 @@
             font-size: 0.75rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.6);
+            color: #94a3b8;
             margin-bottom: 1.5rem;
             font-weight: 500;
         }
@@ -99,7 +97,7 @@
         .overline span {
             display: inline-block;
             margin: 0 5px;
-            color: #d1c4e9;
+            color: #38bdf8;
         }
 
         h1 {
@@ -108,6 +106,7 @@
             font-weight: 600;
             margin-bottom: 1rem;
             letter-spacing: 0.5px;
+            color: #f8fafc;
         }
 
         .subtitle-group {
@@ -115,15 +114,16 @@
         }
 
         .subtitle {
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             line-height: 1.7;
-            color: #d1c4e9;
+            color: #cbd5e1;
             font-weight: 300;
         }
 
         .progress {
             font-size: 0.75rem;
-            color: rgba(255,255,255,0.45);
+            color: #64748b;
+            letter-spacing: 1px;
             margin-bottom: 1.5rem;
         }
 
@@ -139,22 +139,17 @@
             font-weight: 400;
             line-height: 1.5;
             padding: 1rem 1.2rem;
-            border-radius: 18px;
+            border-radius: 14px;
             border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
-            color: white;
+            transition: all 0.25s ease;
+            color: #f1f5f9;
             text-align: left;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #a4508b 0%, #5f0a87 100%);
-            box-shadow: 0 4px 15px rgba(164, 80, 139, 0.3);
-        }
-
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         button:hover {
@@ -162,8 +157,9 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(56, 189, 248, 0.4);
+            color: #ffffff;
         }
 
         button:active {
@@ -200,19 +196,30 @@
             }
         }
 
-        .result-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+        .result-image-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .result-img {
+            width: 125px;
+            height: 125px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid rgba(56, 189, 248, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
         }
 
         .result-name {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+            color: #f8fafc;
         }
 
         .result-description {
-            color: #d1c4e9;
+            color: #cbd5e1;
             font-size: 0.9rem;
             line-height: 1.8;
             margin-bottom: 2rem;
@@ -221,7 +228,16 @@
         .restart-btn {
             width: 100%;
             text-align: center;
-            background: linear-gradient(135deg, #a4508b, #5f0a87);
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-weight: 500;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 14px rgba(29, 78, 216, 0.35);
+        }
+
+        .restart-btn:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45);
         }
 
         @media (max-width: 600px) {
@@ -278,51 +294,51 @@
         {
             question: "Saat menghadapi masalah besar, apa yang paling kamu lakukan?",
             answers: [
-                "A. Turun langsung melihat masalah dan mencari solusi yang bisa segera dikerjakan.",
-                "B. Berani mengambil keputusan besar dan menjalankannya dengan tegas.",
-                "C. Memikirkan dampaknya dalam jangka panjang dan menjaga prinsip yang diyakini.",
-                "D. Membangun komunikasi dan mencari dukungan dari berbagai pihak.",
-                "E. Menyusun strategi, mengembangkan orang-orang di sekitar, lalu menjalankannya secara bertahap."
+                "A. Turun ke lapangan & cari solusi cepat.",
+                "B. Ambil keputusan tegas & berani.",
+                "C. Jaga prinsip & dampak jangka panjang.",
+                "D. Bangun komunikasi & cari dukungan.",
+                "E. Susun strategi & eksekusi bertahap."
             ]
         },
         {
-            question: "Kalau mendapat kesempatan membangun sesuatu dari nol, apa yang paling kamu prioritaskan?",
+            question: "Kalau mendapat kesempatan membangun sesuatu dari nol, apa prioritasmu?",
             answers: [
-                "A. Membuat sesuatu yang langsung bisa digunakan dan dirasakan manfaatnya.",
-                "B. Menentukan tujuan besar dan menggerakkan semua orang untuk mencapainya.",
-                "C. Memastikan fondasinya kuat dan sesuai dengan nilai yang kamu percaya.",
-                "D. Mencari orang-orang yang tepat untuk diajak bekerja sama.",
-                "E. Membuat sistem yang bisa terus berkembang dalam jangka panjang."
+                "A. Hasil nyata yang langsung terasa.",
+                "B. Visi besar & menggerakkan tim.",
+                "C. Fondasi kuat sesuai nilai yang diyakini.",
+                "D. Rangkul orang-orang yang tepat.",
+                "E. Buat sistem yang berkelanjutan."
             ]
         },
         {
             question: "Ketika banyak orang meragukan keputusanmu, apa yang kamu lakukan?",
             answers: [
-                "A. Tetap bekerja dan membiarkan hasil yang berbicara.",
-                "B. Tetap maju selama kamu yakin keputusan tersebut benar.",
-                "C. Mendengarkan kritik, tetapi tidak meninggalkan prinsip yang kamu pegang.",
-                "D. Mengajak mereka berdiskusi dan mencari titik temu.",
-                "E. Mengevaluasi strategi dan memperbaikinya jika memang diperlukan."
+                "A. Buktikan langsung lewat hasil kerja.",
+                "B. Tetap maju dengan penuh keyakinan.",
+                "C. Dengar kritik, tapi pegang teguh prinsip.",
+                "D. Ajak diskusi & cari titik temu.",
+                "E. Evaluasi ulang & perbaiki strategi."
             ]
         },
         {
             question: "Menurutmu, apa yang paling menentukan keberhasilan sebuah tim?",
             answers: [
-                "A. Kerja nyata dan kemampuan menyelesaikan masalah.",
-                "B. Pemimpin yang tegas dan mampu mengambil keputusan.",
-                "C. Nilai, loyalitas, dan prinsip yang sama.",
-                "D. Komunikasi serta hubungan yang baik antaranggota.",
-                "E. Strategi, sistem, dan orang-orang yang terus berkembang."
+                "A. Aksi nyata & eksekusi cepat.",
+                "B. Kepemimpinan yang tegas.",
+                "C. Integritas & prinsip yang sama.",
+                "D. Komunikasi & hubungan yang baik.",
+                "E. Strategi matang & sistem yang rapi."
             ]
         },
         {
-            question: "Kalau suatu hari kamu menjadi pemimpin, warisan apa yang ingin kamu tinggalkan?",
+            question: "Jika menjadi pemimpin, warisan apa yang ingin kamu tinggalkan?",
             answers: [
-                "A. Hasil nyata yang membuat kehidupan orang lain menjadi lebih baik.",
-                "B. Organisasi atau negara yang kuat dan mandiri.",
-                "C. Nilai dan perjuangan yang tetap diingat generasi berikutnya.",
-                "D. Banyak orang yang tumbuh karena kesempatan yang kamu berikan.",
-                "E. Sistem dan generasi penerus yang mampu melanjutkan apa yang sudah dibangun."
+                "A. Manfaat nyata bagi masyarakat.",
+                "B. Organisasi yang kuat & mandiri.",
+                "C. Nilai & rekam jejak perjuangan.",
+                "D. Melahirkan banyak orang hebat baru.",
+                "E. Sistem kokoh yang terus berlanjut."
             ]
         }
     ];
@@ -334,60 +350,70 @@
     const profiles = {
         JOKOWI: {
             icon: "🏗️",
+            image: "images/jokowi.jpg",
             name: "Tipe Jokowi",
             title: "Sang Eksekutor",
             description: "Kamu adalah tipe yang lebih suka membuktikan sesuatu melalui tindakan. Kamu tidak puas hanya dengan rencana dan pembicaraan. Bagimu, ide yang baik adalah ide yang bisa diwujudkan menjadi hasil nyata."
         },
         GIBRAN: {
             icon: "🚀",
+            image: "images/gibran.jpg",
             name: "Tipe Gibran",
             title: "Sang Pembawa Perubahan",
             description: "Kamu cenderung terbuka terhadap perubahan dan berani mencoba pendekatan baru. Kamu suka melihat peluang di tengah perubahan dan tertarik pada ide yang bisa membawa sesuatu menuju arah yang berbeda."
         },
         MEGAWATI: {
             icon: "🌹",
+            image: "images/mega.jpg",
             name: "Tipe Megawati",
             title: "Sang Penjaga Prinsip",
             description: "Kamu adalah tipe yang tidak mudah meninggalkan prinsip. Bagimu, keberhasilan bukan hanya soal hasil akhir, tetapi juga nilai yang tetap dipertahankan sepanjang perjalanan."
         },
         BAHLIL: {
             icon: "💼",
+            image: "images/bahlil.jpg",
             name: "Tipe Bahlil",
             title: "Sang Penggerak Peluang",
             description: "Kamu pandai melihat peluang dan membangun hubungan dengan orang lain. Kamu percaya bahwa banyak hal besar bisa terjadi ketika orang-orang yang tepat dipertemukan dan sebuah peluang berani dimanfaatkan."
         },
         PURBAYA: {
             icon: "📊",
+            image: "images/purbaya.jpg",
             name: "Tipe Purbaya",
             title: "Sang Strategis",
             description: "Kamu cenderung berpikir sebelum bertindak. Kamu suka memahami situasi, melihat data dan berbagai kemungkinan, kemudian menyusun strategi dengan mempertimbangkan dampaknya dalam jangka panjang."
         },
         HATTA: {
             icon: "📚",
-            name: "Tipe Hatta",
+            image: "images/habibie.jpg",
+            name: "Tipe Habibie",
             title: "Sang Intelektual",
             description: "Kamu percaya bahwa pengetahuan dan pemikiran yang matang adalah fondasi penting untuk mencapai sesuatu yang besar. Kamu suka belajar, memahami persoalan secara mendalam, dan mencari solusi berdasarkan pemikiran yang rasional."
         },
         PRABOWO: {
             icon: "🦅",
+            image: "images/prabowo.jpg",
             name: "Tipe Prabowo",
             title: "Sang Pemimpin",
             description: "Kamu cenderung berani mengambil keputusan dan menghadapi tekanan. Ketika memiliki tujuan besar, kamu ingin bergerak dengan tegas, membangun fondasi yang kuat, dan memastikan tujuan tersebut dapat diwujudkan."
         },
         GUFRON: {
             icon: "🔬",
+            image: "images/gufron.jpg",
             name: "Tipe Gufron",
             title: "Sang Inovator",
             description: "Kamu senang mencari cara baru untuk menyelesaikan masalah. Daripada selalu mengikuti cara lama, kamu cenderung bertanya apakah ada pendekatan yang lebih kreatif, efektif, dan relevan dengan masa depan."
         },
         SUHARTO: {
             icon: "🏛️",
+            image: "images/suharto.jpg",
             name: "Tipe Suharto",
             title: "Sang Pengelola",
             description: "Kamu cenderung menyukai struktur, keteraturan, dan arah yang jelas. Kamu percaya bahwa sesuatu yang besar membutuhkan organisasi yang rapi, sistem yang kuat, serta kemampuan menjaga stabilitas dalam jangka panjang."
         },
         PUAN: {
             icon: "🤝",
+            image: "images/puan.jpg",
             name: "Tipe Puan",
             title: "Sang Koordinator",
             description: "Kamu cenderung kuat dalam membangun komunikasi dan menghubungkan berbagai orang. Kamu memahami bahwa tujuan besar membutuhkan kerja sama, koordinasi, dan kemampuan mencari titik temu di antara berbagai kepentingan."
@@ -494,19 +520,15 @@
         const letters = ["A", "B", "C", "D", "E"];
         const selectedLetter = letters[index];
 
-        // Simpan ke riwayat
         answerHistory.push(selectedLetter);
 
-        // Ambil scoring
         const questionScore = scoring[currentQuestion];
         const selectedScore = questionScore[selectedLetter];
 
-        // Tambahkan poin
         Object.keys(selectedScore).forEach(profile => {
             scores[profile] += selectedScore[profile];
         });
 
-        // Animasi
         card.classList.add("fade-out");
 
         setTimeout(() => {
@@ -577,9 +599,11 @@
             <div class="overline">
                 <span>✦</span> YOUR RESULT <span>✦</span>
             </div>
-            <div class="result-icon">
-                ${profile.icon}
+            
+            <div class="result-image-wrapper">
+                <img src="${profile.image}" alt="${profile.name}" class="result-img">
             </div>
+
             <div class="result-name">
                 ${profile.name}
             </div>
@@ -590,7 +614,7 @@
                 ${profile.description}
             </p>
             <button class="restart-btn" onclick="restartQuiz()">
-                COBA LAGI ✨
+                COBA LAGI ↺
             </button>
         `;
 
@@ -606,30 +630,28 @@
     }
 
     // =====================================================
-    // ANIMASI PARTIKEL LATAR BELAKANG
+    // ANIMASI PARTIKEL TANDA TANYA (?)
     // =====================================================
 
     function createParticles() {
         const container = document.getElementById("particles-container");
-        const particleCount = 25;
+        const particleCount = 28;
 
         for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement("div");
-            const isHeart = Math.random() > 0.6;
+            particle.className = "particle-question";
+            particle.innerHTML = "?";
 
-            if (isHeart) {
-                particle.className = "particle-heart";
-                particle.innerHTML = "♥";
-            } else {
-                particle.className = "particle";
-                const size = Math.random() * 3 + 1;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-            }
+            // Ukuran font acak antara 14px - 32px
+            const fontSize = Math.random() * 18 + 14;
+            particle.style.fontSize = `${fontSize}px`;
 
+            // Posisi horizontal acak (0% - 100%)
             particle.style.left = `${Math.random() * 100}%`;
-            particle.style.animationDuration = `${Math.random() * 8 + 6}s`;
-            particle.style.animationDelay = `${Math.random() * 5}s`;
+
+            // Durasi animasi & delay acak
+            particle.style.animationDuration = `${Math.random() * 10 + 8}s`;
+            particle.style.animationDelay = `${Math.random() * 6}s`;
 
             container.appendChild(particle);
         }
