@@ -251,7 +251,6 @@
 <div id="particles-container"></div>
 
 <div class="card-container" id="quiz-card">
-
     <div class="overline">
         <span>✦</span> YOU ARE LIKE <span>✦</span>
     </div>
@@ -267,7 +266,6 @@
     </div>
 
     <div class="button-grid" id="answers"></div>
-
 </div>
 
 <script>
@@ -277,7 +275,6 @@
     // =====================================================
 
     const questions = [
-
         {
             question: "Saat menghadapi masalah besar, apa yang paling kamu lakukan?",
             answers: [
@@ -288,7 +285,6 @@
                 "E. Menyusun strategi, mengembangkan orang-orang di sekitar, lalu menjalankannya secara bertahap."
             ]
         },
-
         {
             question: "Kalau mendapat kesempatan membangun sesuatu dari nol, apa yang paling kamu prioritaskan?",
             answers: [
@@ -299,7 +295,6 @@
                 "E. Membuat sistem yang bisa terus berkembang dalam jangka panjang."
             ]
         },
-
         {
             question: "Ketika banyak orang meragukan keputusanmu, apa yang kamu lakukan?",
             answers: [
@@ -310,7 +305,6 @@
                 "E. Mengevaluasi strategi dan memperbaikinya jika memang diperlukan."
             ]
         },
-
         {
             question: "Menurutmu, apa yang paling menentukan keberhasilan sebuah tim?",
             answers: [
@@ -321,7 +315,6 @@
                 "E. Strategi, sistem, dan orang-orang yang terus berkembang."
             ]
         },
-
         {
             question: "Kalau suatu hari kamu menjadi pemimpin, warisan apa yang ingin kamu tinggalkan?",
             answers: [
@@ -332,645 +325,323 @@
                 "E. Sistem dan generasi penerus yang mampu melanjutkan apa yang sudah dibangun."
             ]
         }
-
     ];
-
 
     // =====================================================
     // PROFIL HASIL
     // =====================================================
 
-   const profiles = {
-
-    JOKOWI: {
-        icon: "🏗️",
-        name: "Tipe Jokowi",
-        title: "Sang Eksekutor",
-        description:
-            "Kamu adalah tipe yang lebih suka membuktikan sesuatu melalui tindakan. Kamu tidak puas hanya dengan rencana dan pembicaraan. Bagimu, ide yang baik adalah ide yang bisa diwujudkan menjadi hasil nyata."
-    },
-
-    GIBRAN: {
-        icon: "🚀",
-        name: "Tipe Gibran",
-        title: "Sang Pembawa Perubahan",
-        description:
-            "Kamu cenderung terbuka terhadap perubahan dan berani mencoba pendekatan baru. Kamu suka melihat peluang di tengah perubahan dan tertarik pada ide yang bisa membawa sesuatu menuju arah yang berbeda."
-    },
-
-    MEGAWATI: {
-        icon: "🌹",
-        name: "Tipe Megawati",
-        title: "Sang Penjaga Prinsip",
-        description:
-            "Kamu adalah tipe yang tidak mudah meninggalkan prinsip. Bagimu, keberhasilan bukan hanya soal hasil akhir, tetapi juga nilai yang tetap dipertahankan sepanjang perjalanan."
-    },
-
-    BAHLIL: {
-        icon: "💼",
-        name: "Tipe Bahlil",
-        title: "Sang Penggerak Peluang",
-        description:
-            "Kamu pandai melihat peluang dan membangun hubungan dengan orang lain. Kamu percaya bahwa banyak hal besar bisa terjadi ketika orang-orang yang tepat dipertemukan dan sebuah peluang berani dimanfaatkan."
-    },
-
-    PURBAYA: {
-        icon: "📊",
-        name: "Tipe Purbaya",
-        title: "Sang Strategis",
-        description:
-            "Kamu cenderung berpikir sebelum bertindak. Kamu suka memahami situasi, melihat data dan berbagai kemungkinan, kemudian menyusun strategi dengan mempertimbangkan dampaknya dalam jangka panjang."
-    },
-
-    HATTA: {
-        icon: "📚",
-        name: "Tipe Hatta",
-        title: "Sang Intelektual",
-        description:
-            "Kamu percaya bahwa pengetahuan dan pemikiran yang matang adalah fondasi penting untuk mencapai sesuatu yang besar. Kamu suka belajar, memahami persoalan secara mendalam, dan mencari solusi berdasarkan pemikiran yang rasional."
-    },
-
-    PRABOWO: {
-        icon: "🦅",
-        name: "Tipe Prabowo",
-        title: "Sang Pemimpin",
-        description:
-            "Kamu cenderung berani mengambil keputusan dan menghadapi tekanan. Ketika memiliki tujuan besar, kamu ingin bergerak dengan tegas, membangun fondasi yang kuat, dan memastikan tujuan tersebut dapat diwujudkan."
-    },
-
-    GUFRON: {
-        icon: "🔬",
-        name: "Tipe Gufron",
-        title: "Sang Inovator",
-        description:
-            "Kamu senang mencari cara baru untuk menyelesaikan masalah. Daripada selalu mengikuti cara lama, kamu cenderung bertanya apakah ada pendekatan yang lebih kreatif, efektif, dan relevan dengan masa depan."
-    },
-
-    SUHARTO: {
-        icon: "🏛️",
-        name: "Tipe Suharto",
-        title: "Sang Pengelola",
-        description:
-            "Kamu cenderung menyukai struktur, keteraturan, dan arah yang jelas. Kamu percaya bahwa sesuatu yang besar membutuhkan organisasi yang rapi, sistem yang kuat, serta kemampuan menjaga stabilitas dalam jangka panjang."
-    },
-
-    PUAN: {
-        icon: "🤝",
-        name: "Tipe Puan",
-        title: "Sang Koordinator",
-        description:
-            "Kamu cenderung kuat dalam membangun komunikasi dan menghubungkan berbagai orang. Kamu memahami bahwa tujuan besar membutuhkan kerja sama, koordinasi, dan kemampuan mencari titik temu di antara berbagai kepentingan."
-    }
-
-};
-
- // =====================================================
-// STATE QUIZ
-// =====================================================
-
-let currentQuestion = 0;
-
-
-// =====================================================
-// 10 PROFIL
-// =====================================================
-
-const profileNames = [
-    "JOKOWI",
-    "GIBRAN",
-    "MEGAWATI",
-    "BAHLIL",
-    "PURBAYA",
-    "HATTA",
-    "PRABOWO",
-    "GUFRON",
-    "SUHARTO",
-    "PUAN"
-];
-
-
-// =====================================================
-// SCORE
-// =====================================================
-
-const scores = {};
-
-profileNames.forEach(profile => {
-    scores[profile] = 0;
-});
-
-
-// =====================================================
-// SISTEM SCORING
-// =====================================================
-//
-// Setiap jawaban tidak langsung berarti satu tokoh.
-//
-// Satu jawaban memberikan poin kepada 4 profil:
-//   Posisi 1 = 4 poin
-//   Posisi 2 = 3 poin
-//   Posisi 3 = 2 poin
-//   Posisi 4 = 1 poin
-//
-// Dengan cara ini, pola jawaban lebih sulit ditebak.
-//
-// =====================================================
-
-const scoring = [
-
-    // =================================================
-    // QUESTION 1
-    // =================================================
-
-    {
-        A: {
-            JOKOWI: 4,
-            PURBAYA: 3,
-            PUAN: 2,
-            GUFRON: 1
+    const profiles = {
+        JOKOWI: {
+            icon: "🏗️",
+            name: "Tipe Jokowi",
+            title: "Sang Eksekutor",
+            description: "Kamu adalah tipe yang lebih suka membuktikan sesuatu melalui tindakan. Kamu tidak puas hanya dengan rencana dan pembicaraan. Bagimu, ide yang baik adalah ide yang bisa diwujudkan menjadi hasil nyata."
         },
-
-        B: {
-            PRABOWO: 4,
-            GIBRAN: 3,
-            SUHARTO: 2,
-            BAHLIL: 1
+        GIBRAN: {
+            icon: "🚀",
+            name: "Tipe Gibran",
+            title: "Sang Pembawa Perubahan",
+            description: "Kamu cenderung terbuka terhadap perubahan dan berani mencoba pendekatan baru. Kamu suka melihat peluang di tengah perubahan dan tertarik pada ide yang bisa membawa sesuatu menuju arah yang berbeda."
         },
-
-        C: {
-            MEGAWATI: 4,
-            HATTA: 3,
-            SUHARTO: 2,
-            PUAN: 1
+        MEGAWATI: {
+            icon: "🌹",
+            name: "Tipe Megawati",
+            title: "Sang Penjaga Prinsip",
+            description: "Kamu adalah tipe yang tidak mudah meninggalkan prinsip. Bagimu, keberhasilan bukan hanya soal hasil akhir, tetapi juga nilai yang tetap dipertahankan sepanjang perjalanan."
         },
-
-        D: {
-            BAHLIL: 4,
-            PUAN: 3,
-            GIBRAN: 2,
-            JOKOWI: 1
+        BAHLIL: {
+            icon: "💼",
+            name: "Tipe Bahlil",
+            title: "Sang Penggerak Peluang",
+            description: "Kamu pandai melihat peluang dan membangun hubungan dengan orang lain. Kamu percaya bahwa banyak hal besar bisa terjadi ketika orang-orang yang tepat dipertemukan dan sebuah peluang berani dimanfaatkan."
         },
-
-        E: {
-            PURBAYA: 4,
-            HATTA: 3,
-            GUFRON: 2,
-            PRABOWO: 1
+        PURBAYA: {
+            icon: "📊",
+            name: "Tipe Purbaya",
+            title: "Sang Strategis",
+            description: "Kamu cenderung berpikir sebelum bertindak. Kamu suka memahami situasi, melihat data dan berbagai kemungkinan, kemudian menyusun strategi dengan mempertimbangkan dampaknya dalam jangka panjang."
+        },
+        HATTA: {
+            icon: "📚",
+            name: "Tipe Hatta",
+            title: "Sang Intelektual",
+            description: "Kamu percaya bahwa pengetahuan dan pemikiran yang matang adalah fondasi penting untuk mencapai sesuatu yang besar. Kamu suka belajar, memahami persoalan secara mendalam, dan mencari solusi berdasarkan pemikiran yang rasional."
+        },
+        PRABOWO: {
+            icon: "🦅",
+            name: "Tipe Prabowo",
+            title: "Sang Pemimpin",
+            description: "Kamu cenderung berani mengambil keputusan dan menghadapi tekanan. Ketika memiliki tujuan besar, kamu ingin bergerak dengan tegas, membangun fondasi yang kuat, dan memastikan tujuan tersebut dapat diwujudkan."
+        },
+        GUFRON: {
+            icon: "🔬",
+            name: "Tipe Gufron",
+            title: "Sang Inovator",
+            description: "Kamu senang mencari cara baru untuk menyelesaikan masalah. Daripada selalu mengikuti cara lama, kamu cenderung bertanya apakah ada pendekatan yang lebih kreatif, efektif, dan relevan dengan masa depan."
+        },
+        SUHARTO: {
+            icon: "🏛️",
+            name: "Tipe Suharto",
+            title: "Sang Pengelola",
+            description: "Kamu cenderung menyukai struktur, keteraturan, dan arah yang jelas. Kamu percaya bahwa sesuatu yang besar membutuhkan organisasi yang rapi, sistem yang kuat, serta kemampuan menjaga stabilitas dalam jangka panjang."
+        },
+        PUAN: {
+            icon: "🤝",
+            name: "Tipe Puan",
+            title: "Sang Koordinator",
+            description: "Kamu cenderung kuat dalam membangun komunikasi dan menghubungkan berbagai orang. Kamu memahami bahwa tujuan besar membutuhkan kerja sama, koordinasi, dan kemampuan mencari titik temu di antara berbagai kepentingan."
         }
-    },
+    };
 
+    // =====================================================
+    // STATE & SCORING
+    // =====================================================
 
-    // =================================================
-    // QUESTION 2
-    // =================================================
+    let currentQuestion = 0;
+    let answerHistory = [];
 
-    {
-        A: {
-            GUFRON: 4,
-            JOKOWI: 3,
-            GIBRAN: 2,
-            HATTA: 1
-        },
+    const profileNames = [
+        "JOKOWI", "GIBRAN", "MEGAWATI", "BAHLIL", "PURBAYA",
+        "HATTA", "PRABOWO", "GUFRON", "SUHARTO", "PUAN"
+    ];
 
-        B: {
-            SUHARTO: 4,
-            PRABOWO: 3,
-            JOKOWI: 2,
-            PUAN: 1
-        },
-
-        C: {
-            HATTA: 4,
-            MEGAWATI: 3,
-            PURBAYA: 2,
-            SUHARTO: 1
-        },
-
-        D: {
-            BAHLIL: 4,
-            GIBRAN: 3,
-            PUAN: 2,
-            GUFRON: 1
-        },
-
-        E: {
-            PURBAYA: 4,
-            PUAN: 3,
-            SUHARTO: 2,
-            HATTA: 1
-        }
-    },
-
-
-    // =================================================
-    // QUESTION 3
-    // =================================================
-
-    {
-        A: {
-            JOKOWI: 4,
-            HATTA: 3,
-            GIBRAN: 2,
-            BAHLIL: 1
-        },
-
-        B: {
-            PRABOWO: 4,
-            MEGAWATI: 3,
-            SUHARTO: 2,
-            PUAN: 1
-        },
-
-        C: {
-            MEGAWATI: 4,
-            HATTA: 3,
-            PUAN: 2,
-            PURBAYA: 1
-        },
-
-        D: {
-            PUAN: 4,
-            BAHLIL: 3,
-            GIBRAN: 2,
-            JOKOWI: 1
-        },
-
-        E: {
-            PURBAYA: 4,
-            GUFRON: 3,
-            HATTA: 2,
-            PRABOWO: 1
-        }
-    },
-
-
-    // =================================================
-    // QUESTION 4
-    // =================================================
-
-    {
-        A: {
-            JOKOWI: 4,
-            PRABOWO: 3,
-            BAHLIL: 2,
-            GUFRON: 1
-        },
-
-        B: {
-            PRABOWO: 4,
-            PUAN: 3,
-            SUHARTO: 2,
-            GIBRAN: 1
-        },
-
-        C: {
-            MEGAWATI: 4,
-            HATTA: 3,
-            SUHARTO: 2,
-            PUAN: 1
-        },
-
-        D: {
-            PUAN: 4,
-            BAHLIL: 3,
-            GIBRAN: 2,
-            HATTA: 1
-        },
-
-        E: {
-            PURBAYA: 4,
-            GUFRON: 3,
-            JOKOWI: 2,
-            SUHARTO: 1
-        }
-    },
-
-
-    // =================================================
-    // QUESTION 5
-    // =================================================
-
-    {
-        A: {
-            JOKOWI: 4,
-            GIBRAN: 3,
-            PUAN: 2,
-            HATTA: 1
-        },
-
-        B: {
-            PRABOWO: 4,
-            SUHARTO: 3,
-            JOKOWI: 2,
-            MEGAWATI: 1
-        },
-
-        C: {
-            MEGAWATI: 4,
-            HATTA: 3,
-            PURBAYA: 2,
-            GUFRON: 1
-        },
-
-        D: {
-            BAHLIL: 4,
-            PUAN: 3,
-            GIBRAN: 2,
-            PRABOWO: 1
-        },
-
-        E: {
-            PURBAYA: 4,
-            GUFRON: 3,
-            SUHARTO: 2,
-            BAHLIL: 1
-        }
-    }
-
-];
-
-
-// =====================================================
-// ELEMENT
-// =====================================================
-
-const card = document.getElementById("quiz-card");
-const questionTitle = document.getElementById("question-title");
-const questionText = document.getElementById("question-text");
-const answersContainer = document.getElementById("answers");
-const progress = document.getElementById("progress");
-
-
-// =====================================================
-// TAMPILKAN PERTANYAAN
-// =====================================================
-
-function showQuestion() {
-
-    const q = questions[currentQuestion];
-
-    questionTitle.textContent =
-        `Question ${currentQuestion + 1}`;
-
-    progress.textContent =
-        `QUESTION ${currentQuestion + 1} OF ${questions.length}`;
-
-    questionText.textContent =
-        q.question;
-
-    answersContainer.innerHTML = "";
-
-    q.answers.forEach((answer, index) => {
-
-        const button =
-            document.createElement("button");
-
-        // Jangan membuat A selalu terlihat paling menonjol
-        button.className =
-            "btn-secondary";
-
-        button.textContent =
-            answer;
-
-        button.onclick =
-            () => selectAnswer(index);
-
-        answersContainer.appendChild(button);
-
-    });
-}
-
-
-// =====================================================
-// PILIH JAWABAN
-// =====================================================
-
-function selectAnswer(index) {
-
-    const letters = ["A", "B", "C", "D", "E"];
-
-    const selectedLetter =
-        letters[index];
-
-    // Ambil scoring pertanyaan saat ini
-    const questionScore =
-        scoring[currentQuestion];
-
-    // Ambil skor jawaban yang dipilih
-    const selectedScore =
-        questionScore[selectedLetter];
-
-    // Tambahkan poin
-    Object.keys(selectedScore).forEach(profile => {
-
-        scores[profile] +=
-            selectedScore[profile];
-
-    });
-
-
-    // Animasi
-    card.classList.add("fade-out");
-
-
-    setTimeout(() => {
-
-        currentQuestion++;
-
-        if (currentQuestion < questions.length) {
-
-            card.classList.remove("fade-out");
-
-            card.classList.add("fade-in");
-
-            showQuestion();
-
-            setTimeout(() => {
-
-                card.classList.remove("fade-in");
-
-            }, 400);
-
-        } else {
-
-            showResult();
-
-        }
-
-    }, 250);
-}
-
-
-// =====================================================
-// HITUNG HASIL
-// =====================================================
-
-function calculateResult() {
-
-    let highestScore = -1;
-
-    let winners = [];
-
-
-    // Cari skor tertinggi
+    const scores = {};
     profileNames.forEach(profile => {
-
-        const score =
-            scores[profile];
-
-        if (score > highestScore) {
-
-            highestScore =
-                score;
-
-            winners = [profile];
-
-        }
-
-        else if (score === highestScore) {
-
-            winners.push(profile);
-
-        }
-
+        scores[profile] = 0;
     });
 
+    const scoring = [
+        // QUESTION 1
+        {
+            A: { JOKOWI: 4, PURBAYA: 3, PUAN: 2, GUFRON: 1 },
+            B: { PRABOWO: 4, GIBRAN: 3, SUHARTO: 2, BAHLIL: 1 },
+            C: { MEGAWATI: 4, HATTA: 3, SUHARTO: 2, PUAN: 1 },
+            D: { BAHLIL: 4, PUAN: 3, GIBRAN: 2, JOKOWI: 1 },
+            E: { PURBAYA: 4, HATTA: 3, GUFRON: 2, PRABOWO: 1 }
+        },
+        // QUESTION 2
+        {
+            A: { GUFRON: 4, JOKOWI: 3, GIBRAN: 2, HATTA: 1 },
+            B: { SUHARTO: 4, PRABOWO: 3, JOKOWI: 2, PUAN: 1 },
+            C: { HATTA: 4, MEGAWATI: 3, PURBAYA: 2, SUHARTO: 1 },
+            D: { BAHLIL: 4, GIBRAN: 3, PUAN: 2, GUFRON: 1 },
+            E: { PURBAYA: 4, PUAN: 3, SUHARTO: 2, HATTA: 1 }
+        },
+        // QUESTION 3
+        {
+            A: { JOKOWI: 4, HATTA: 3, GIBRAN: 2, BAHLIL: 1 },
+            B: { PRABOWO: 4, MEGAWATI: 3, SUHARTO: 2, PUAN: 1 },
+            C: { MEGAWATI: 4, HATTA: 3, PUAN: 2, PURBAYA: 1 },
+            D: { PUAN: 4, BAHLIL: 3, GIBRAN: 2, JOKOWI: 1 },
+            E: { PURBAYA: 4, GUFRON: 3, HATTA: 2, PRABOWO: 1 }
+        },
+        // QUESTION 4
+        {
+            A: { JOKOWI: 4, PRABOWO: 3, BAHLIL: 2, GUFRON: 1 },
+            B: { PRABOWO: 4, PUAN: 3, SUHARTO: 2, GIBRAN: 1 },
+            C: { MEGAWATI: 4, HATTA: 3, SUHARTO: 2, PUAN: 1 },
+            D: { PUAN: 4, BAHLIL: 3, GIBRAN: 2, HATTA: 1 },
+            E: { PURBAYA: 4, GUFRON: 3, JOKOWI: 2, SUHARTO: 1 }
+        },
+        // QUESTION 5
+        {
+            A: { JOKOWI: 4, GIBRAN: 3, PUAN: 2, HATTA: 1 },
+            B: { PRABOWO: 4, SUHARTO: 3, JOKOWI: 2, MEGAWATI: 1 },
+            C: { MEGAWATI: 4, HATTA: 3, PURBAYA: 2, GUFRON: 1 },
+            D: { BAHLIL: 4, PUAN: 3, GIBRAN: 2, PRABOWO: 1 },
+            E: { PURBAYA: 4, GUFRON: 3, SUHARTO: 2, BAHLIL: 1 }
+        }
+    ];
 
-    // Jika ada seri,
-    // gunakan tie-breaker berdasarkan jawaban terakhir
-    if (winners.length > 1) {
+    // =====================================================
+    // ELEMENTS
+    // =====================================================
 
-        const lastLetter =
-            getLastAnswerLetter();
+    const card = document.getElementById("quiz-card");
+    const questionTitle = document.getElementById("question-title");
+    const questionText = document.getElementById("question-text");
+    const answersContainer = document.getElementById("answers");
+    const progress = document.getElementById("progress");
 
-        const lastScore =
-            scoring[questions.length - 1][lastLetter];
+    // =====================================================
+    // TAMPILKAN PERTANYAAN
+    // =====================================================
 
+    function showQuestion() {
+        const q = questions[currentQuestion];
 
-        // Pilih pemenang seri yang mendapat
-        // bobot lebih tinggi pada jawaban terakhir
-        winners.sort((a, b) => {
+        questionTitle.textContent = `Question ${currentQuestion + 1}`;
+        progress.textContent = `QUESTION ${currentQuestion + 1} OF ${questions.length}`;
+        questionText.textContent = q.question;
 
-            const scoreA =
-                lastScore[a] || 0;
+        answersContainer.innerHTML = "";
 
-            const scoreB =
-                lastScore[b] || 0;
+        q.answers.forEach((answer, index) => {
+            const button = document.createElement("button");
+            button.className = "btn-secondary";
+            button.textContent = answer;
+            button.onclick = () => selectAnswer(index);
+            answersContainer.appendChild(button);
+        });
+    }
 
-            return scoreB - scoreA;
+    // =====================================================
+    // PILIH JAWABAN
+    // =====================================================
 
+    function selectAnswer(index) {
+        const letters = ["A", "B", "C", "D", "E"];
+        const selectedLetter = letters[index];
+
+        // Simpan ke riwayat
+        answerHistory.push(selectedLetter);
+
+        // Ambil scoring
+        const questionScore = scoring[currentQuestion];
+        const selectedScore = questionScore[selectedLetter];
+
+        // Tambahkan poin
+        Object.keys(selectedScore).forEach(profile => {
+            scores[profile] += selectedScore[profile];
         });
 
+        // Animasi
+        card.classList.add("fade-out");
+
+        setTimeout(() => {
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                card.classList.remove("fade-out");
+                card.classList.add("fade-in");
+                showQuestion();
+
+                setTimeout(() => {
+                    card.classList.remove("fade-in");
+                }, 400);
+            } else {
+                showResult();
+            }
+        }, 250);
     }
 
+    // =====================================================
+    // HITUNG HASIL
+    // =====================================================
 
-    return winners[0];
-}
+    function calculateResult() {
+        let highestScore = -1;
+        let winners = [];
 
+        profileNames.forEach(profile => {
+            const score = scores[profile];
+            if (score > highestScore) {
+                highestScore = score;
+                winners = [profile];
+            } else if (score === highestScore) {
+                winners.push(profile);
+            }
+        });
 
-// =====================================================
-// SIMPAN JAWABAN TERAKHIR
-// =====================================================
+        if (winners.length > 1) {
+            const lastLetter = getLastAnswerLetter();
+            const lastScore = scoring[questions.length - 1][lastLetter];
 
-let answerHistory = [];
+            winners.sort((a, b) => {
+                const scoreA = lastScore[a] || 0;
+                const scoreB = lastScore[b] || 0;
+                return scoreB - scoreA;
+            });
+        }
 
-
-// =====================================================
-// UPDATE SELECT ANSWER
-// =====================================================
-//
-// Tambahkan bagian ini ke selectAnswer()
-// setelah:
-// const selectedLetter = letters[index];
-//
-// answerHistory.push(selectedLetter);
-//
-// =====================================================
-
-
-// =====================================================
-// AMBIL JAWABAN TERAKHIR
-// =====================================================
-
-function getLastAnswerLetter() {
-
-    if (answerHistory.length === 0) {
-        return "A";
+        return winners[0];
     }
 
-    return answerHistory[
-        answerHistory.length - 1
-    ];
-}
+    function getLastAnswerLetter() {
+        if (answerHistory.length === 0) return "A";
+        return answerHistory[answerHistory.length - 1];
+    }
 
+    // =====================================================
+    // TAMPILKAN HASIL
+    // =====================================================
 
-// =====================================================
-// TAMPILKAN HASIL
-// =====================================================
+    function showResult() {
+        const resultProfile = calculateResult();
+        const profile = profiles[resultProfile];
 
-function showResult() {
+        card.classList.remove("fade-out");
 
-    const resultProfile =
-        calculateResult();
+        card.innerHTML = `
+            <div class="overline">
+                <span>✦</span> YOUR RESULT <span>✦</span>
+            </div>
+            <div class="result-icon">
+                ${profile.icon}
+            </div>
+            <div class="result-name">
+                ${profile.name}
+            </div>
+            <div class="overline">
+                ${profile.title}
+            </div>
+            <p class="result-description">
+                ${profile.description}
+            </p>
+            <button class="restart-btn" onclick="restartQuiz()">
+                COBA LAGI ✨
+            </button>
+        `;
 
-    const profile =
-        profiles[resultProfile];
+        card.classList.add("fade-in");
+    }
 
+    // =====================================================
+    // RESTART
+    // =====================================================
 
-    card.classList.remove("fade-out");
+    function restartQuiz() {
+        location.reload();
+    }
 
+    // =====================================================
+    // ANIMASI PARTIKEL LATAR BELAKANG
+    // =====================================================
 
-    card.innerHTML = `
+    function createParticles() {
+        const container = document.getElementById("particles-container");
+        const particleCount = 25;
 
-        <div class="overline">
-            <span>✦</span>
-            YOUR RESULT
-            <span>✦</span>
-        </div>
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement("div");
+            const isHeart = Math.random() > 0.6;
 
-        <div class="result-icon">
-            ${profile.icon}
-        </div>
+            if (isHeart) {
+                particle.className = "particle-heart";
+                particle.innerHTML = "♥";
+            } else {
+                particle.className = "particle";
+                const size = Math.random() * 3 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+            }
 
-        <div class="result-name">
-            ${profile.name}
-        </div>
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.animationDuration = `${Math.random() * 8 + 6}s`;
+            particle.style.animationDelay = `${Math.random() * 5}s`;
 
-        <div class="overline">
-            ${profile.title}
-        </div>
+            container.appendChild(particle);
+        }
+    }
 
-        <p class="result-description">
-            ${profile.description}
-        </p>
+    // =====================================================
+    // JALANKAN SAAT HALAMAN PERTAMA DIBUKA
+    // =====================================================
+    createParticles();
+    showQuestion();
 
-        <button
-            class="restart-btn"
-            onclick="restartQuiz()">
-            COBA LAGI ✨
-        </button>
+</script>
 
-    `;
-
-    card.classList.add("fade-in");
-}
-
-
-// =====================================================
-// RESTART
-// =====================================================
-
-function restartQuiz() {
-
-    currentQuestion = 0;
-
-    answerHistory = [];
-
-    profileNames.forEach(profile => {
-
-        scores[profile] = 0;
-
-    });
-
-    location.reload();
-}
+</body>
+</html>
